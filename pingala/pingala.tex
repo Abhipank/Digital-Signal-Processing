@@ -237,6 +237,10 @@ Verify the following using a python code.
 \begin{align}
 	\sum_{k=1}^{\infty}\frac{b_k}{10^k} =\frac{8}{89}
 \end{align}
+\solution
+\begin{lstlisting}
+wget https://github.com/Abhipank/Digital-Signal-Processing/blob/master/pingala/codes/jee2019.py	
+\end{lstlisting}
 \end{enumerate}
 \section{Pingala Series}
 \begin{enumerate}[label=\thesection.\arabic*,ref=\thesection.\theenumi]
@@ -251,23 +255,83 @@ Verify the following using a python code.
 	x(n+2) = x\brak{n+1} + x\brak{n},  \quad x(0) = x(1) = 1, n \ge 0
 	\label{eq:10-pingala}
 \end{align}
-Generate a stem plot for $x(n)$.
-\item 		Find $X^{+}(z)$.
-	\item Find $x(n)$.
+Generate a stem plot for $x(n)$.\\
+\solution
+\begin{lstlisting}
+wget https://github.com/Abhipank/Digital-Signal-Processing/blob/master/pingala/codes/2.2.py	
+\end{lstlisting}
+\begin{figure}[!ht]
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./figs/pingalaplot.pdf}
+	\end{center}
+	\captionof{figure}{}
+	\label{fig:xnyn}	
+	\end{figure}
+\item Find $X^{+}(z)$.\\
+\solution
+\begin{align}
+	x(n+2)&=x(n)+x(n+1)\\
+	\Rightarrow z^{2}(X^{+}(z)-z^{-1}-1)&=X^{+}(z)+z^{1}(X^{+}(z)-1)\\
+    \Rightarrow X^{+}(z)&=\frac{1}{1-z^{-1}-z^{-2}}
+\end{align}
+	\item Find $x(n)$.\\
+	\solution
+	\begin{align}
+	 X^{+}(z)&=\frac{1}{1-z^{-1}-z^{-2}}\\
+	 \Rightarrow X^{+}(z)&=\frac{z^{1}}{\alpha-\beta}\brak{\frac{1}{1-\alpha z^{-1}}-\frac{1}{1-\beta z^{-1}}}\\
+	 \Rightarrow X^{+}(z)&=\frac{\sum_{n = 0}^{\infty}\alpha^{n}z^{-n+1}-\sum_{n = 0}^{\infty}\beta^{n}z^{-n+1}}{\alpha-\beta}\\
+	 \Rightarrow X^{+}(z)&=\frac{\sum_{n = 0}^{\infty}\alpha^{n+1}z^{-n}-\sum_{n =0}^{\infty}\beta^{n+1}z^{-n}}{\alpha-\beta}\\
+	\Rightarrow x(n)&=\frac{\alpha^{n+1}-\beta^{n+1}}{\alpha-\beta},z> \max(|\alpha|,|\beta|)
+	\end{align}
 	\item Sketch 
 \begin{align}
 	y(n)	 = x\brak{n-1} + x\brak{n+1},  \quad n \ge 0
 	\label{eq:10-orig-diff-rev}
 \end{align}
-	\item Find $Y^{+}(z)$. 
-\item Find $y(n)$.
+\solution
+\begin{lstlisting}
+wget https://github.com/Abhipank/Digital-Signal-Processing/blob/master/pingala/codes/2.5.py	
+\end{lstlisting}
+\begin{figure}[!ht]
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./figs/yplot}
+	\end{center}
+	\captionof{figure}{}
+	\label{fig:xnyn}	
+	\end{figure}
+	\item Find $Y^{+}(z)$.\\
+	\solution
+	\begin{align}
+		y(n)&=x(n+1)+x(n-1)\\
+		\Rightarrow Y^{+}(z)&=z^{1}(X^{+}(z)-1)+x(-1)+z^{-1}X^{+}(z)\\
+        \Rightarrow	Y^{+}(z)&=\frac{1+2z^{-1}}{1-z^{-1}-z^{-2}}
+	\end{align}
+\item Find $y(n)$.\\
+\solution
+\begin{align}
+	Y^{+}(z)&=\frac{1+2z^{-1}}{1-z^{-1}-z^{-2}}\\
+	\Rightarrow Y^{+}(z)&=\frac{\frac{\alpha+2}{1-\alpha z^{-1}}-\frac{\beta+2}{1-\beta z^{-1}}}{\alpha-\beta}\\
+	\Rightarrow y(n)&=\frac{\alpha^{n+1}-\beta^{n+1}+2\alpha^{n}-2\beta^{n}}{\alpha-\beta}\\
+	\Rightarrow y(n)&=\alpha^{n+1}+\beta^{n+1},z> \max(|\alpha|,|\beta|)
+\end{align}
 \end{enumerate}
 \section{Power of the Z transform}
 \begin{enumerate}[label=\thesection.\arabic*,ref=\thesection.\theenumi]
 \item Show that 
 \begin{align}
 	\sum_{k=1}^{n}a_k = 
-	\sum_{k=0}^{n-1}x(n) = x(n)*u(n-1)
+	\sum_{k=0}^{n-1}x(k) = x(n)*u(n-1)
+\end{align}
+\solution
+\begin{align}
+	x_n&=\frac{\alpha^{n+1}-\beta^{n+1}}{\alpha-\beta},n \ge 0\\
+	\Rightarrow x_n_-_1&=\frac{\alpha^{n}-\beta^{n}}{\alpha-\beta},n \ge 1\\
+	\Rightarrow a_k&=x(k-1),k \ge 1\\
+	\Rightarrow \sum_{k=1}^{n}a_k&=\sum_{k=1}^{n}x(k-1)\\
+	\Rightarrow \sum_{k=1}^{n}a_k&=\sum_{k=0}^{n-1}x(k)\\
+     \Rightarrow \sum_{k=0}^{n-1}x(k)&=\sum_{k=0}^{n-1}x(k)u(n-1-k)\\
+	 \Rightarrow \sum_{k=0}^{n-1}x(k)&=\sum_{k=-\infty}^{\infty}x(k)u(n-1-k)\\
+	 \Rightarrow \sum_{k=-\infty}^{\infty}x(k)u(n-1-k)&=x(n)*u(n-1)
 \end{align}
 \item Show that 
 \begin{align}
@@ -277,10 +341,25 @@ can be expressed as
 \begin{align}
 	\sbrak{x\brak{n+1}-1}u\brak{n}
 \end{align}
+\solution
+\begin{align}
+	a_k&=x(k-1),k \ge 1\\
+	\Rightarrow a_n_+_2-1&=x(n+1)-1,n \ge 1\\
+	\Rightarrow a_n_+_2-1&=[x(n+1)-1]u(n)
+\end{align}
  \item Show that 
 \begin{align}
 	\sum_{k=1}^{\infty}\frac{a_k}{10^k}= 
 	\frac{1}{10}\sum_{k=0}^{\infty}\frac{x\brak{k}}{10^k} =\frac{1}{10}X^{+}\brak{{10}}
+\end{align}
+\solution
+\begin{align}
+	a_k&=x(k-1),k \ge 1\\
+	\Rightarrow \frac{a_k}{10^{k}}&=\frac{x(k-1)}{10^{k}}\\
+	\Rightarrow \sum_{k=1}^{\infty}\frac{a_k}{10^{k}}&=\sum_{k=1}^{\infty}\frac{x(k-1)}{10^{k}}\\
+	\Rightarrow \sum_{k=1}^{\infty}\frac{a_k}{10^{k}}&=\frac{1}{10}\sum_{k=0}^{\infty}\frac{x(k)}{10^{k}}\\
+	\Rightarrow \frac{1}{10}\sum_{k=0}^{\infty}\frac{x(k)}{10^{k}}&=\frac{1}{10}\sum_{k=0}^{\infty}x(k)10^{-k}\\
+	\Rightarrow \frac{1}{10}\sum_{k=0}^{\infty}\frac{x(k)}{10^{k}}&=\frac{1}{10}X^{+}(10)
 \end{align}
  \item Show that 
 \begin{align}
@@ -290,12 +369,47 @@ can be expressed as
 \begin{align}
 	w(n) =\brak{\alpha^{n+1} + \beta^{n+1}}u(n)
 \end{align}
-		and find $W(z)$.
+		and find $W(z)$.\\
+		\solution
+	\begin{align}
+		w(n) &=\brak{\alpha^{n+1} + \beta^{n+1}}u(n),n\ge 1\\
+	\Rightarrow	w(n-1) &=\brak{\alpha^{n} + \beta^{n}}u(n-1),n\ge 0\\
+	\Rightarrow	w(n-1) &=\brak{\alpha^{n} + \beta^{n}}\\
+		w(n)&=y(n)\\
+		\Rightarrow W(z)&=Y^{+}(z)\\
+		\Rightarrow W(z)&=\frac{1+2z^{-2}}{1-z^{-1}-z^{-2}}
+	\end{align}
  \item Show that 
 \begin{align}
 	\sum_{k=1}^{\infty}\frac{b_k}{10^k} =
 	\frac{1}{10}\sum_{k=0}^{\infty}\frac{y\brak{k}}{10^k} =\frac{1}{10}Y^{+}\brak{{10}}
 \end{align}
+\solution
+\begin{align}
+	y(n)&=x(n-1)+x(n+1),n \ge 0\\
+	\Rightarrow y(n-1)&=x(n-2)+x(n),n \ge 1\\
+	\Rightarrow y(n-1)&=x(n-2)+x(n),n \ge 2\\
+    a_k_-_1&=x(k-1),k\ge 2\\
+	a_k_+_1&=x(k+1),k \ge 0\\
+	\Rightarrow y(n-1)&=a_n_-_1+a_n_+_1,n \ge 2\\
+	\Rightarrow y(n-1)&=b(n),n \ge 2\\
+	y(0)&=x(-1)+x(0)=1=b_1\\
+	\Rightarrow y(n-1)&=b_n,n \ge 1\\
+	\Rightarrow \frac{b_k}{10^{k}}&=\frac{x(k-1)}{10^{k}}\\
+	\Rightarrow \sum_{k=1}^{\infty}\frac{b_k}{10^{k}}&=\sum_{k=1}^{\infty}\frac{y(k-1)}{10^{k}}\\
+	\Rightarrow \sum_{k=1}^{\infty}\frac{b_k}{10^{k}}&=\frac{1}{10}\sum_{k=0}^{\infty}\frac{y(k)}{10^{k}}\\
+	\Rightarrow \frac{1}{10}\sum_{k=0}^{\infty}\frac{y(k)}{10^{k}}&=\frac{1}{10}\sum_{k=0}^{\infty}y(k)10^{-k}\\
+	\Rightarrow \frac{1}{10}\sum_{k=0}^{\infty}\frac{y(k)}{10^{k}}&=\frac{1}{10}Y^{+}(10)
+\end{align}
 \item Solve the JEE 2019 problem.
+\solution
+\begin{align}
+	\sum_{k=1}^{n}a_k&=x(n)*u(n-1),n \ge 1\\
+	a_n_+_2-1&=[x(n+1)-1]u(n),n \ge 1\\
+	\Rightarrow a_n_+_2-1&=[x(n+1)u(n)-u(n+1)],n \ge 1\\
+	{\mathcal {Z}}\{x(n)*u(n-1)\}&={\mathcal {Z}}\{[x(n+1)u(n)-u(n+1)]\}\\
+	\Rightarrow a_n_+_2-1&=\sum_{k=1}^{n}a_k
+\end{align}
+Hence 1.1 is correct.Using (3.21) 1.2 is correct.Using (3.44) 1.4 is incorrect.Using (3.39) and (2.18) 1.3 is correct.
 \end{enumerate}
 \end{document}
