@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1665328712 "/home/abhishek/EE3900/PINGALA/pingala/pingala.tex" "pingala.pdf" "pingala" 1665328712
+["pdflatex"] 1665332742 "/home/abhishek/EE3900/PINGALA/pingala/pingala.tex" "pingala.pdf" "pingala" 1665332742
   "/etc/texmf/web2c/texmf.cnf" 1660148083 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/abhishek/EE3900/PINGALA/pingala/pingala.tex" 1665328712 14851 2f89c9964bb66d0e05ec41b380b7568e ""
+  "/home/abhishek/EE3900/PINGALA/pingala/pingala.tex" 1665332741 14853 d8388415495fbb04afe03514904cbada ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -139,9 +139,9 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1660148621 2698201 2375fc0557b826a90b6c5c5ea06a9b84 ""
   "figs/pingalaplot.pdf" 1665313954 13549 02df811a6ec6f07745144fa383445cd0 ""
   "figs/yplot.pdf" 1665321401 10210 f27303c5477117f86af54283949e45f9 ""
-  "pingala.aux" 1665328712 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "pingala.aux" 1665332742 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "pingala.out" 0 -1 0 "pdflatex"
-  "pingala.tex" 1665328712 14851 2f89c9964bb66d0e05ec41b380b7568e ""
+  "pingala.tex" 1665332741 14853 d8388415495fbb04afe03514904cbada ""
   (generated)
   "pingala.aux"
   "pingala.log"
